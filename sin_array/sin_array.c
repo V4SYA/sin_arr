@@ -18,14 +18,15 @@ int main() {
     double w_d = (2 * M_PI) / SIZE;
 
 #pragma acc kernels
+#pragma acc loop seq
 #pragma omp parallel for num_threads(6){
         for (int i = 0; i < SIZE; i++) {
             corners_together_d += sin(w_d * i);
         }
-        clock_t end = clock();
-        printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
-        printf("%.50%lf\n", corners_together_d);
     }
+    clock_t end = clock();
+    printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("%.50%lf\n", corners_together_d);
     
     //__________________
 
@@ -36,14 +37,16 @@ int main() {
     float w_f = (2 * M_PI) / SIZE;
 
 #pragma acc kernels
+#pragma acc loop seq
 #pragma omp parallel for num_threads(6){
         for (int i = 0; i < SIZE; i++) {
             corners_together_f += sin(w_f * i);
         }
-        end = clock();
-        printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
-        printf("%.50f\n", corners_together_f);
     }
+
+    end = clock();
+    printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
+    printf("%.50f\n", corners_together_f);
     //__________________
 
     return 0;
