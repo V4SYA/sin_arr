@@ -18,7 +18,7 @@ int main() {
     double w_d = (2 * M_PI) / SIZE;
 
 #pragma acc kernels
-#pragma omp parallel for num_threads(4)
+#pragma omp parallel for num_threads(6)
     for (int i = 0; i < SIZE; i++) {
         corners_together_d += sin(w_d * i);
     }
@@ -36,7 +36,7 @@ int main() {
     float w_f = (2 * M_PI) / SIZE;
 
 #pragma acc kernels
-#pragma omp parallel for num_threads(4)
+#pragma omp parallel for num_threads(6)
     for (int i = 0; i < SIZE; i++) {
         corners_together_f += sin(w_f * i);
     }
