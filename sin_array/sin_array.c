@@ -38,7 +38,7 @@ int main() {
 #pragma acc kernels
 #pragma omp parallel for num_threads(6)
     for (int i = 0; i < SIZE; i++) {
-        corners_together_f += sinf(w_f * i);
+        corners_together_f += sin(w_f * i);
     }
 
     end = clock();
