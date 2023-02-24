@@ -25,8 +25,8 @@ int main() {
 
     clock_t end = clock();
     printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
-    printf("%.50%lf\n", corners_together_d);
-    
+    printf("%.50lf\n", corners_together_d);
+
     //__________________
 
     //работа с float
