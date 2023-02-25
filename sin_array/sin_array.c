@@ -26,6 +26,7 @@ int main() {
     clock_t end = clock();
     printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
     printf("%.50lf\n", corners_together_d);
+    free(sinus_array_d);
 
     //__________________
 
@@ -44,6 +45,7 @@ int main() {
     end = clock();
     printf("time %f\n", (double)(end - start) / CLOCKS_PER_SEC);
     printf("%.50f\n", corners_together_f);
+    free(sinus_array_f);
     //__________________
 
     return 0;
